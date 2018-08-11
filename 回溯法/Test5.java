@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-
 public class Test5 {
 	static final int MAX = 1000;
 	static int d[][] = { {0,0,0}, {0,0,0}, {0,0,-1}, {0,-1,0}, {0,0,1}, {0,1,0} };
