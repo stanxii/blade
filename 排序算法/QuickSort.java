@@ -6,7 +6,8 @@ class QuickSort {
             quickSort(a, mid + 1, j);
         }
     }
-    public void partition(int[] a, int i, int j) {
+
+    public int partition(int[] a, int i, int j) {
         int b = i;
         int e = j + 1;
         int x = a[i];
@@ -22,7 +23,8 @@ class QuickSort {
             a[b] = a[e];
             a[e] = tmp;
         }
-        a[i] = a[b];
-        a[b] = x;
+        a[i] = a[e];
+        a[e] = x;
+        return b;
     }
 }
