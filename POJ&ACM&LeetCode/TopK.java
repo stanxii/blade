@@ -1,13 +1,14 @@
 class TopK {
-	public static void main(String[] args) {
-		int[] a = {3,4,6,8,32,38,9,22,88,62,10};
-		System.out.println(getTopK(a, 4));
-	}
+    public static void main(String[] args) {
+        int[] a = { 3, 4, 6, 8, 32, 38, 9, 22, 88, 62, 10 };
+        System.out.println(getTopK(a, 4));
+    }
+
     public static int getTopK(int[] a, int k) {
-        if (k < 1 || k>a.length){
+        if (k < 1 || k > a.length) {
             return -1;
         }
-		k = a.length+1-k;
+        k = a.length + 1 - k;
         int i = 0, j = a.length - 1, index = 0;
         while (index != k - 1) {
             if (index > k - 1) {
