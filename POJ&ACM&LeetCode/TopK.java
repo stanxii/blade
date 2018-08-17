@@ -4,6 +4,9 @@ class TopK {
 		System.out.println(getTopK(a, 4));
 	}
     public static int getTopK(int[] a, int k) {
+        if (k < 1 || k>a.length){
+            return -1;
+        }
 		k = a.length+1-k;
         int i = 0, j = a.length - 1, index = 0;
         while (index != k - 1) {
