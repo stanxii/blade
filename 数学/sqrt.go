@@ -8,11 +8,11 @@ import (
 // NewtonSqrt 牛顿迭代法求根
 func NewtonSqrt(num, accuracy float64) (float64, int) {
 	x := num / 2
-	count := 1
+	count := 0
 	for math.Abs(x*x-num) > accuracy {
-		fmt.Println(count, x)
 		x = (x + num/x) / 2
 		count++
+		fmt.Println(count, x)
 	}
 	return x, count
 }
@@ -24,7 +24,6 @@ func BinarySqrt(num, accuracy float64) (float64, int) {
 	up := num
 	count := 1
 	for math.Abs(y*y-num) > accuracy {
-		fmt.Println(count, y)
 		if y*y > num {
 			up = y
 		} else {
@@ -32,6 +31,7 @@ func BinarySqrt(num, accuracy float64) (float64, int) {
 		}
 		y = (low + up) / 2
 		count++
+		fmt.Println(count, y)
 	}
 	return y, count
 }
