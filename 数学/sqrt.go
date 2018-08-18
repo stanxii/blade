@@ -35,6 +35,7 @@ func BinarySqrt(num, accuracy float64) (float64, int) {
 	}
 	return y, count
 }
+
 func main() {
 	accuracy := 0.00000001
 	fmt.Println("math sqrt", math.Sqrt(5))
