@@ -8,7 +8,7 @@ class ListNode {
     }
 }
 
-class ListRing {
+class ListRingLength {
     public int getRingLength(ListNode head) {
         if (head == null || head.next == null) {
             return 0;
