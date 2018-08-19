@@ -1,9 +1,17 @@
 import java.lang.Math;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 
 class BigNumberMultiply {
     public static void main(String[] args) {
         long num1 = 122330366L, num2 = 32233407L;
-        System.out.print(karatsuba(num1, num2));
+        System.out.printf("num1: %d, num2: %d\n", num1, num2);
+        System.out.printf("result: %d\n", karatsuba(num1, num2));
+
+        int[] a1 = { 1, 2, 3, 4, 5, 6 }, a2 = { 2, 3, 4, 5, 6, 7, 8 };
+        System.out.printf("num1: %s, num2: %s\n", Arrays.toString(a1), Arrays.toString(a2));
+        System.out.printf("result: %s\n", Arrays.toString(bigNumberMultiply2(a1, a2)));
     }
 
     /**
