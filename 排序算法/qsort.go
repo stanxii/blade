@@ -31,7 +31,7 @@ func quickSort(a []int, left, right int) {
 
 func main() {
 	a := []int{29, 22, 33, 6, 77, 99, 88, 250, 100}
-	fmt.Println("before: ", a)
+	fmt.Println("before:", a)
 	quickSort(a, 0, len(a)-1)
-	fmt.Println("after: ", a)
+	fmt.Println("after:", a)
 }

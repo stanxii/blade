@@ -39,5 +39,5 @@ func getTopK(a []int, k int) int {
 func main() {
 	a := []int{29, 22, 33, 6, 77, 99, 88, 250, 100}
 	k := 2
-	fmt.Println("top k: ", k, "value: ", getTopK(a, k))
+	fmt.Println("top k:", k, "value:", getTopK(a, k))
 }
