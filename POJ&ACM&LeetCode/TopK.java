@@ -8,10 +8,10 @@ class TopK {
         if (k < 1 || k > a.length) {
             return -1;
         }
-        k = a.length + 1 - k;
+        k = a.length - k;
         int i = 0, j = a.length - 1, index = 0;
-        while (index != k - 1) {
-            if (index > k - 1) {
+        while (index != k) {
+            if (index > k) {
                 j = index - 1;
             } else {
                 i = index + 1;
