@@ -4,9 +4,14 @@ import "fmt"
 
 func isCircleString(stringList []string) bool {
 	first, last := make(map[string]int), make(map[string]int)
+	var same []string
 	for _, str := range stringList {
 		firstChar := string(str[0])
 		lastChar := string(str[len(str)-1])
+		if firstChar == lastChar {
+			same = append(same, firstChar)
+			continue
+		}
 		if val, ok := first[firstChar]; ok {
 			first[firstChar] = val + 1
 		} else {
@@ -18,17 +23,28 @@ func isCircleString(stringList []string) bool {
 			last[lastChar] = 1
 		}
 	}
+	flag := true
 	for k, v := range first {
 		if val, ok := last[k]; !ok {
-			return false
+			flag = false
+			break
 		} else if v != val {
-			return false
+			flag = false
+			break
 		}
 	}
-	return true
+	if flag {
+		for _, key := range same {
+			if _, ok := first[key]; !ok {
+				flag = false
+			}
+		}
+	}
+	return flag
 }
 
 func main() {
 	stringList := []string{"grep", "pip", "echo", "open", "net", "tag", "pre"}
+	// stringList := []string{"ab", "ba", "cc"}
 	fmt.Println(isCircleString(stringList))
 }
