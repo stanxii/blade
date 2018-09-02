@@ -23,24 +23,19 @@ func isCircleString(stringList []string) bool {
 			last[lastChar] = 1
 		}
 	}
-	flag := true
 	for k, v := range first {
 		if val, ok := last[k]; !ok {
-			flag = false
-			break
+			return false
 		} else if v != val {
-			flag = false
-			break
+			return false
 		}
 	}
-	if flag {
-		for _, key := range same {
-			if _, ok := first[key]; !ok {
-				flag = false
-			}
+	for _, key := range same {
+		if _, ok := first[key]; !ok {
+			return false
 		}
 	}
-	return flag
+	return true
 }
 
 func main() {
