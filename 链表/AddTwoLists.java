@@ -25,7 +25,7 @@ public class AddTwoLists {
         while (reverseN1 != null && reverseN2 != null) {
             Node tmp = new Node();
             tmp.value = (n + reverseN1.value + reverseN2.value) % 10;
-            n = (reverseN1.value + reverseN2.value) / 10;
+            n = (n + reverseN1.value + reverseN2.value) / 10;
             tmpN3.next = tmp;
             tmpN3 = tmp;
             reverseN1 = reverseN1.next;
@@ -43,9 +43,9 @@ public class AddTwoLists {
         n = 0;
         while (tmpN3 != null) {
             tmpN3.value = (tmpN3.value + n) % 10;
-            n = tmpN3.value / 10;
+            n = (tmpN3.value + n) / 10;
             next = tmpN3.next;
-            if (next == null && tmpN3.value > 10){
+            if (next == null && tmpN3.value > 10) {
                 Node last = new Node();
                 last.value = n;
                 tmpN3.next = last;
