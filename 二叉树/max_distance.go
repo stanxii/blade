@@ -10,7 +10,7 @@ type TreeNode struct {
 var max int
 
 func maxDistance(root *TreeNode) int {
-	if root.left == nil || root.right == nil {
+	if root.left == nil && root.right == nil {
 		return 0
 	}
 	var leftMaxLen, rightMaxLen, maxLen int
