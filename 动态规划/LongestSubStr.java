@@ -2,7 +2,7 @@ public class LongestSubStr {
     public String LCS(String s1, String s2){
         String res = "";
         if (s1 == null || s1.length() == 0 || s2 == null || s2.length() == 0){
-            return res
+            return res;
         }
         int max = 0, m = s1.length(), n=s2.length();
         int[][] dp = new int[m][n];
@@ -20,6 +20,6 @@ public class LongestSubStr {
                 }
             }
         }
-        return res
+        return res;
     }
 }
