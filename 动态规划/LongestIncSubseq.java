@@ -19,6 +19,23 @@ public class LongestIncSubseq {
 		}
 		return max;
 	}
+	public int LIS2(int[] A) {
+        if(A == null || A.length == 0)
+            return 0;
+        int[] b = new int[A.length];
+        b[0] = 1;
+        int result = 1;
+        for(int i=1; i<A.length; i++) {
+            int max = -1;
+            for(int j=0; j<i; j++) {
+                if(A[j] < A[i] && b[j] > max)
+                    max = b[j];
+            }
+            b[i] = max + 1;
+            result = Math.max(result, b[i]);
+        }
+        return result;
+    }
 
 	public static void main(String[] args) {
 		System.out.println(LIS(new int[] { 10, 22, 9, 33, 21, 50, 41, 60, 30 }));
