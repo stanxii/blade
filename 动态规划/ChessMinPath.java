@@ -15,8 +15,9 @@ class ChessMinPath {
         }
         return dp[row - 1][col - 1];
     }
+
     public static void main(String[] args) {
-        int[][] chess = {{7,3,4},{8,12,3},{6,9,20}};    
+        int[][] chess = { { 7, 3, 4 }, { 8, 12, 3 }, { 6, 9, 20 } };
         System.out.println(minPath(chess));
     }
 }
