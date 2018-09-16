@@ -1,4 +1,12 @@
 public class CommonAncestor{
+    public class TreeNode{
+        public int val;
+        public TreeNode left;
+        public TreeNode right;
+        public TreeNode(int val){
+            this.val = val;
+        }
+    }
 
     // 在root为根的二叉树中找A,B的LCA:
     // 如果找到了就返回这个LCA
