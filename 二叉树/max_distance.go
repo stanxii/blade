@@ -32,6 +32,30 @@ func maxDistance(root *TreeNode) int {
 	return maxLen
 }
 
+func maxPathSum(root *TreeNode) int {
+	val := root.val
+	if root.left == nil && root.right == nil {
+		return val
+	}
+	var leftMaxLen, rightMaxLen, maxLen int
+	if root.left != nil {
+		leftMaxLen = maxPathSum(root.left) + 1
+	}
+	if root.right != nil {
+		rightMaxLen = maxPathSum(root.right) + 1
+	}
+	maxSumLen := leftMaxLen + rightMaxLen + val
+	if maxSumLen > max {
+		max = maxSumLen
+	}
+	if leftMaxLen > rightMaxLen {
+		maxLen = leftMaxLen
+	}else{
+		maxLen = rightMaxLen
+	}
+	return maxLen
+}
+
 func main() {
 	node := new(TreeNode)
 	maxDistance(node)
