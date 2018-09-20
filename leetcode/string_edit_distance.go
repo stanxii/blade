@@ -70,17 +70,14 @@ func LevenshteinDistance(source, dest string) int {
 	ld.constructMatrix()
 	// PrintMatrix(ld.M)
 
-	// step 5
 	for c := 1; c <= cols; c++ {
 		for r := 1; r <= rows; r++ {
-			var cur_cost int = 1
+			var curCost int = 1
 
 			if source[c-1] == dest[r-1] {
-				cur_cost = 0
+				curCost = 0
 			}
-			// step 6
-			cost := minOfThree(ld.M[r-1][c-1]+cur_cost, ld.M[r-1][c]+1, ld.M[r][c-1]+1)
-			// step 7
+			cost := minOfThree(ld.M[r-1][c-1]+curCost, ld.M[r-1][c]+1, ld.M[r][c-1]+1)
 			ld.setMatrix(cost, r, c)
 		}
 	}
