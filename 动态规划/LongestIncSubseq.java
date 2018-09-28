@@ -19,14 +19,14 @@ public class LongestIncSubseq {
 		}
 		return max;
 	}
-	public int LIS2(int[] A) {
+	public static int LIS2(int[] A) {
         if(A == null || A.length == 0)
             return 0;
         int[] b = new int[A.length];
         b[0] = 1;
         int result = 1;
         for(int i=1; i<A.length; i++) {
-            int max = -1;
+            int max = 0;
             for(int j=0; j<i; j++) {
                 if(A[j] < A[i] && b[j] > max)
                     max = b[j];
