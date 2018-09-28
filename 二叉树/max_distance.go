@@ -39,12 +39,12 @@ func maxPathSum(root *TreeNode) int {
 	}
 	var leftMaxLen, rightMaxLen, maxLen int
 	if root.left != nil {
-		leftMaxLen = maxPathSum(root.left) + 1
+		leftMaxLen = maxPathSum(root.left) + val
 	}
 	if root.right != nil {
-		rightMaxLen = maxPathSum(root.right) + 1
+		rightMaxLen = maxPathSum(root.right) + val
 	}
-	maxSumLen := leftMaxLen + rightMaxLen + val
+	maxSumLen := leftMaxLen + rightMaxLen - val
 	if maxSumLen > max {
 		max = maxSumLen
 	}
