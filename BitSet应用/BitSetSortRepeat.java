@@ -1,12 +1,12 @@
 import java.util.BitSet;
-class BitSetSortRepeat{
+public class BitSetSortRepeat{
     public static void main(String[] args) {
         sort();
     }
     public static void sort(){
         int[] arr = new int[]{2,1,7,6,2,3,5,2,6};
-        Map<Integer,Integer> count = new ConcurrentHashMap<Integer,Integer>(arr.length);    #增加一个Map对象存储
-         int max = max(arr);
+        Map<Integer,Integer> count = new ConcurrentHashMap<Integer,Integer>(arr.length);    //增加一个Map对象存储
+        int max = max(arr);
         System.out.println(max);
         BitSet bitSet = new BitSet(max);
         //初始化bitSet,默认为false，可以不设置
