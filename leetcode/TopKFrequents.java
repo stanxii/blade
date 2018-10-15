@@ -1,4 +1,4 @@
-class topKFrequent {
+public class TopKFrequent {
     public List<Integer> topKFrequent(int[] nums, int k) {
         List<Integer> res = new LinkedList<Integer>();
         Map<Integer, Integer> map = new HashMap<Integer, Integer>();
