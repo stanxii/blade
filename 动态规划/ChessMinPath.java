@@ -1,3 +1,4 @@
+// 动态规划求棋盘最小路径和
 class ChessMinPath {
     public static int minPath(int[][] chess) {
         int row = chess.length;
