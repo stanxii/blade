@@ -1,5 +1,5 @@
 public class LongestSubStr {
-    public String LCS(String s1, String s2) {
+    public static String LCS(String s1, String s2) {
         String res = "";
         if (s1 == null || s1.length() == 0 || s2 == null || s2.length() == 0) {
             return res;
