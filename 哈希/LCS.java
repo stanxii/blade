@@ -1,5 +1,5 @@
 public class LCS {
-    public int longestConsecutive(int[] nums) {
+    public static int longestConsecutive(int[] nums) {
         int res = 0;
         Map<Integer, Integer> m = new HashMap<Integer, Integer>();
         for (int num : nums) {
