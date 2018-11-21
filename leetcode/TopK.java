@@ -1,4 +1,4 @@
-// 利用快排算法的partition函数实现O(n)时间复杂度求数组中第k小的数，java版本。
+// 利用快排算法的partition函数实现O(n)时间复杂度求数组中第k小的数，java实现。
 
 class TopK {
     public static void main(String[] args) {
