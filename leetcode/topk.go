@@ -1,3 +1,5 @@
+// 利用快排算法的partition函数实现O(n)时间复杂度求数组中第k小的数。
+
 package main
 
 import "fmt"
