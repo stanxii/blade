@@ -1,4 +1,4 @@
-// 
+// 打印素数
 
 import java.util.BitSet;
 
