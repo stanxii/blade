@@ -1,3 +1,5 @@
+// 使用BitSet实现O(n)排序算法
+
 import java.util.BitSet;
 
 class BitSetSort {
