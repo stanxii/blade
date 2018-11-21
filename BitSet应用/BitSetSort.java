@@ -1,4 +1,4 @@
-// 使用BitSet实现O(n)排序算法
+// 使用BitSet实现O(n)排序算法，不包含重复数字
 
 import java.util.BitSet;
 
