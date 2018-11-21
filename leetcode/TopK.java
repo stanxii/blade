@@ -1,3 +1,5 @@
+// 利用快排算法的partition函数实现O(n)时间复杂度求数组中第k小的数，java版本。
+
 class TopK {
     public static void main(String[] args) {
         int[] a = { 3, 4, 6, 8, 32, 38, 9, 22, 88, 62, 10 };
