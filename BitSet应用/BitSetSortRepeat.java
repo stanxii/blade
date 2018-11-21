@@ -1,3 +1,5 @@
+// 使用BitSet实现O(n)排序算法, 数组包含重复数值
+
 import java.util.BitSet;
 public class BitSetSortRepeat{
     public static void main(String[] args) {
