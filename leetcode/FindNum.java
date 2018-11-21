@@ -1,3 +1,7 @@
+/*
+    给定一个数，找到数组中相加等于给定数值的两个数。
+*/
+
 import java.util.HashMap;
 // public class Solution {
 //     public int[] twoSum(int[] nums, int target) {
