@@ -1,3 +1,7 @@
+/*
+判断单词列表是否能构成闭环，比如["dominate", "edit", "tag", "god"]
+该单词列表首尾字母相连可以构成闭环。
+*/
 package main
 
 import "fmt"
