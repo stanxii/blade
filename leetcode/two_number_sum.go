@@ -1,3 +1,6 @@
+/*
+    给定一个数，找到数组中相加等于给定数值的两个数，golang实现。
+*/
 package main
 
 import "fmt"
