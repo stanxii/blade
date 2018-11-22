@@ -1,4 +1,4 @@
-// 东塔规划求两个字符串最大公共子串
+// 动态规划求两个字符串最大公共子串
 public class LongestSubStr {
     public static String LCS(String s1, String s2) {
         String res = "";
