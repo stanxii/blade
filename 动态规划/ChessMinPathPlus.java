@@ -1,4 +1,6 @@
-class ChessMinPathPlus {
+// 动态规划利用滚动数组求棋盘最小路径和
+
+public class ChessMinPathPlus {
     public static int minPath(int[][] chess) {
         int row = chess.length;
         int col = chess[0].length;
