@@ -1,3 +1,5 @@
+// 动态规划求最长递增子序列
+
 public class LongestIncSubseq {
 	public static int LIS(int[] L) {
 		int max = 0;
