@@ -1,3 +1,5 @@
+// 用链表表示整型数，计算两个数之和
+
 public class AddTwoLists {
     public class Node {
         public int value;
