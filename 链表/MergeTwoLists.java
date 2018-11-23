@@ -1,4 +1,4 @@
-import com.sun.org.apache.bcel.internal.generic.L2D;
+// 合并两个有序链表
 
 class ListNode{
     int val;
