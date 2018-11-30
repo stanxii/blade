@@ -1,3 +1,5 @@
+// 判断链表是否有环并返回环的长度
+
 class ListNode {
     int val;
     ListNode next;
