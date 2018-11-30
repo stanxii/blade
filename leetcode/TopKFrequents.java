@@ -1,3 +1,5 @@
+// 统计数组中出现频次最多的k个数并返回每个数出现的次数
+
 public class TopKFrequent {
     public List<Integer> topKFrequent(int[] nums, int k) {
         List<Integer> res = new LinkedList<Integer>();
