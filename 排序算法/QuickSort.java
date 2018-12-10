@@ -1,3 +1,5 @@
+// 快排java实现
+
 class QuickSort {
     public void quickSort(int[] a, int i, int j) {
         if (i < j) {
