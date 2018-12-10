@@ -1,3 +1,5 @@
+// 快排golang实现
+
 package main
 
 import "fmt"
