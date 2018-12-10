@@ -1,3 +1,5 @@
+// 快排C++实现
+
 template <class Type>
 void QuickSort(Type a[], int p, int r)
 {
