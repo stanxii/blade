@@ -1,88 +1,56 @@
-package main
+pacakge main
 
-import (
-	"fmt"
-)
+func minDistance(from, to string) int {
+	m := len(from)
+	n := len(to)
 
-type Matrix [][]int
+	dp := make([][]int, m+1)
+	for i := range dp {
+		dp[i] = make([]int, n+1)
+	}
 
-type LD struct {
-	M          Matrix
-	Rows, Cols int
-}
+	for i := 1; i <= m; i++ {
+		dp[i][0] = i
+	}
 
-func (ld *LD) constructMatrix() {
+	for j := 1; j <= n; j++ {
+		dp[0][j] = j
+	}
 
-	ld.M = make([][]int, ld.Rows+1)
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			// dp[i][j] 代表了从 from[:i] → to[:j] 所需要的最小步骤
+			// 按照题目给出的 3 种操作方法，分别讨论：
+			// 1. 先 *删除* from[:i] 最后的字母，得到 from[:i-1]。
+			//    再 from[:i-1] → to[:j] 此方法所需的步骤是
+			// 	  1 + dp[i-1][j]
+			// 2. 先 from[:i] → to[:j-1]，
+			//    再 *添加* to[j-1] 到 to 的末尾，此方法所需的步骤是
+			//    1 + dp[i][j-1]
+			// 3. 先 from[i-1] → to[j-1]
+			// 	   3.1 如果 from[i-1] = to[i-1] 的话
+			//         无需 *替换*，
+			//         总的步骤是 dp[i-1][j-1]
+			// 	   3.2 如果 from[i-1] != to[i-1] 的话
+			//         执行 *替换* 操作，把 from[i-1] 替换成 to[j-1]
+			//         总的步骤是 1 + dp[i-1][j-1]
+			dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1])
 
-	for i := 0; i <= ld.Rows; i++ {
-		ld.M[i] = make([]int, ld.Cols+1)
-		if i == 0 {
-			for j := 0; j < ld.Cols+1; j++ {
-				ld.M[0][j] = j
+			replace := 1
+			if from[i-1] == to[j-1] {
+				replace = 0
 			}
-		}
-		ld.M[i][0] = i
-	}
-}
 
-func (ld *LD) setMatrix(cost, row, col int) {
-	ld.M[row][col] = cost
-}
-
-func (ld *LD) getMatrix(cost, row, col int) int {
-	return ld.M[row][col]
-}
-
-func PrintMatrix(m Matrix) {
-	fmt.Print("col: \t ")
-	for i := 0; i < len(m[0]); i++ {
-		fmt.Print(i, " ")
-	}
-
-	fmt.Println()
-
-	for i := 0; i < len(m); i++ {
-		fmt.Println("row: ", i, m[i])
-	}
-}
-
-func minOfThree(a, b, c int) (min int) {
-	min = a
-	if min > b {
-		min = b
-	}
-	if min > c {
-		min = c
-	}
-	return
-}
-
-func LevenshteinDistance(source, dest string) int {
-	var cols, rows int = len(source), len(dest)
-	if cols == 0 {
-		return rows
-	}
-	if rows == 0 {
-		return cols
-	}
-	var ld *LD = &LD{Rows: rows, Cols: cols}
-	ld.constructMatrix()
-	// PrintMatrix(ld.M)
-
-	for c := 1; c <= cols; c++ {
-		for r := 1; r <= rows; r++ {
-			var curCost int = 1
-
-			if source[c-1] == dest[r-1] {
-				curCost = 0
-			}
-			cost := minOfThree(ld.M[r-1][c-1]+curCost, ld.M[r-1][c]+1, ld.M[r][c-1]+1)
-			ld.setMatrix(cost, r, c)
+			dp[i][j] = min(dp[i][j], dp[i-1][j-1]+replace)
 		}
 	}
 
-	PrintMatrix(ld.M)
+	return dp[m][n]
+}
 
-	return ld.M[rows][cols]
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
