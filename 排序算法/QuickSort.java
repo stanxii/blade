@@ -13,7 +13,7 @@ class QuickSort {
         int b = i, e = j + 1;
         int x = a[i];
         while (true) {
-            while (b < j && a[++b] < x)
+            while (b < j && a[++b] <= x)
                 ;
             while (a[--e] > x)
                 ;

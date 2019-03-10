@@ -18,7 +18,7 @@ int Partition(Type a[], int p, int r)
     Type x = a[p];
     while (true)
     {
-        while (a[++i] < x && i < r);
+        while (a[++i] <= x && i < r);
         while (a[--j] > x);
         if (i >= j)
             break;

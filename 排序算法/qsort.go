@@ -8,7 +8,7 @@ func partition(a []int, left, right int) int {
 	low, up := left+1, right
 	x := a[left]
 	for {
-		for a[low] < x && low < up {
+		for a[low] <= x && low < up {
 			low++
 		}
 		for a[up] > x {
@@ -20,6 +20,7 @@ func partition(a []int, left, right int) int {
 		a[low], a[up] = a[up], a[low]
 	}
 	a[left], a[up] = a[up], a[left]
+	fmt.Println(a, up)
 	return up
 }
 
