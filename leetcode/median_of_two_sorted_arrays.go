@@ -1,24 +1,43 @@
 package main
 
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
-	for _,k:=range nums2{
-		nums1=append(nums1,k)
-	}
-x :=len(nums1)
-for i:=0;i<x-1;i++{
-	for j:=0;j<len(nums1)-1-i;j++{
-		if nums1[j]>nums1[j+1]{
-			nums1[j],nums1[j+1]=nums1[j+1],nums1[j]
+	nums := combine(nums1, nums2)
+	return medianOf(nums)
+}
+
+func combine(mis, njs []int) []int {
+	lenMis, i := len(mis), 0
+	lenNjs, j := len(njs), 0
+	res := make([]int, lenMis+lenNjs)
+
+	for k := 0; k < lenMis+lenNjs; k++ {
+		if i == lenMis ||
+			(i < lenMis && j < lenNjs && mis[i] > njs[j]) {
+			res[k] = njs[j]
+			j++
+			continue
+		}
+
+		if j == lenNjs ||
+			(i < lenMis && j < lenNjs && mis[i] <= njs[j]) {
+			res[k] = mis[i]
+			i++
 		}
 	}
+
+	return res
 }
-var res float64
-if(x%2==0){
-	y :=x/2
-	res =  float64((nums1[y]+nums1[y-1]))/2
-}else {
-	y:=x/2
-	res = float64(nums1[y])
-}
-return res
+
+func medianOf(nums []int) float64 {
+	l := len(nums)
+
+	if l == 0 {
+		panic("切片的长度为0，无法求解中位数。")
+	}
+
+	if l%2 == 0 {
+		return float64(nums[l/2]+nums[l/2-1]) / 2.0
+	}
+
+	return float64(nums[l/2])
 }
