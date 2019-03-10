@@ -2,8 +2,8 @@
 
 class TopK {
     public static void main(String[] args) {
-        int[] a = { 3, 4, 6, 8, 32, 38, 9, 22, 88, 62, 10 };
-        System.out.println(getTopK(a, 4));
+        int[] a = {2, 1};
+        System.out.println(getTopK(a, 1));
     }
 
     public static int getTopK(int[] a, int k) {
@@ -11,14 +11,14 @@ class TopK {
             return -1;
         }
         k = a.length - k;
-        int i = 0, j = a.length - 1, index = 0;
+        int i = 0, j = a.length - 1, index = -1;
         while (index != k) {
+            index = partition(a, i, j);
             if (index > k) {
                 j = index - 1;
             } else {
                 i = index + 1;
             }
-            index = partition(a, i, j);
         }
         return a[index];
     }
@@ -27,8 +27,8 @@ class TopK {
         int b = i;
         int e = j + 1;
         int x = a[i];
-        while (true) {
-            while (b < j && a[++b] < x)
+        while (i <= j) {
+            while (b < j && a[++b] <= x)
                 ;
             while (a[--e] > x)
                 ;
