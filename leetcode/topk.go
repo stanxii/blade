@@ -1,4 +1,4 @@
-// 利用快排算法的partition函数实现O(n)时间复杂度求数组中第k小的数，golang实现。
+// 利用快排算法的partition函数实现O(n)时间复杂度求数组中第k大的数，golang实现。
 
 package main
 
@@ -7,8 +7,8 @@ import "fmt"
 func partition(a []int, left, right int) int {
 	low, up := left+1, right
 	x := a[left]
-	for {
-		for a[low] < x && low < up {
+	for low <= up {
+		for a[low] <= x && low < up {
 			low++
 		}
 		for a[up] > x {
@@ -27,19 +27,19 @@ func getTopK(a []int, k int) int {
 		return -1
 	}
 	k = len(a) - k
-	low, up, index := 0, len(a)-1, 0
+	low, up, index := 0, len(a)-1, -1
 	for index != k {
+		index = partition(a, low, up)
 		if index < k {
 			low = index + 1
 		} else {
 			up = index - 1
 		}
-		index = partition(a, low, up)
 	}
 	return a[index]
 }
 func main() {
-	a := []int{29, 22, 33, 6, 77, 99, 88, 250, 100}
-	k := 3
+	a := []int{7,6,5,4,3,2,1}
+	k := 5
 	fmt.Println("top k:", k, "value:", getTopK(a, k))
 }
