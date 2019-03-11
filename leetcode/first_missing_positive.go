@@ -51,15 +51,10 @@ func firstMissingPositive(nums []int) int {
 			arrayMap[v] = true
 		}
 	}
-	var res int
 	for i := 1; i <= max; i++ {
 		if _, ok := arrayMap[i]; !ok {
-			res = i
-			break
+			return i
 		}
 	}
-	if res == 0 {
-		res = max + 1
-	}
-	return res
+	return max + 1
 }
