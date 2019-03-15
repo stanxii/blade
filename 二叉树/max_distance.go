@@ -4,23 +4,23 @@ package main
 import "fmt"
 
 type TreeNode struct {
-	val   int
-	left  *TreeNode
-	right *TreeNode
+    Val int
+    Left *TreeNode
+    Right *TreeNode
 }
 
 var max int
 
 func maxDistance(root *TreeNode) int {
-	if root.left == nil && root.right == nil {
+	if root.Left == nil && root.Right == nil {
 		return 0
 	}
 	var leftMaxLen, rightMaxLen, maxLen int
-	if root.left != nil {
-		leftMaxLen = maxDistance(root.left) + 1
+	if root.Left != nil {
+		leftMaxLen = maxDistance(root.Left) + 1
 	}
-	if root.right != nil {
-		rightMaxLen = maxDistance(root.right) + 1
+	if root.Right != nil {
+		rightMaxLen = maxDistance(root.Right) + 1
 	}
 	maxSumLen := leftMaxLen + rightMaxLen + 2
 	if maxSumLen > max {
@@ -36,15 +36,15 @@ func maxDistance(root *TreeNode) int {
 
 func maxPathSum(root *TreeNode) int {
 	val := root.val
-	if root.left == nil && root.right == nil {
+	if root.Left == nil && root.Right == nil {
 		return val
 	}
 	var leftMaxLen, rightMaxLen, maxLen int
-	if root.left != nil {
-		leftMaxLen = maxPathSum(root.left) + val
+	if root.Left != nil {
+		leftMaxLen = maxPathSum(root.Left) + val
 	}
-	if root.right != nil {
-		rightMaxLen = maxPathSum(root.right) + val
+	if root.Right != nil {
+		rightMaxLen = maxPathSum(root.Right) + val
 	}
 	maxSumLen := leftMaxLen + rightMaxLen - val
 	if maxSumLen > max {
