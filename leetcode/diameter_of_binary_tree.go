@@ -12,29 +12,30 @@ func diameterOfBinaryTree(root *TreeNode) int {
 		return 0
 	}
 	var max int
-	maxPathDistance(root, &max)
-	return max
-}
 
-func maxPathDistance(root *TreeNode, max *int) int {
-	if root.Left == nil && root.Right == nil {
-		return 0
+	var maxPathDistance func(*TreeNode) int
+	maxPathDistance = func(root *TreeNode) int {
+		if root.Left == nil && root.Right == nil {
+			return 0
+		}
+		var leftMaxLen, rightMaxLen, maxLen int
+		if root.Left != nil {
+			leftMaxLen = maxPathDistance(root.Left) + 1
+		}
+		if root.Right != nil {
+			rightMaxLen = maxPathDistance(root.Right) + 1
+		}
+		maxSumLen := leftMaxLen + rightMaxLen
+		if maxSumLen > max {
+			max = maxSumLen
+		}
+		if leftMaxLen > rightMaxLen {
+			maxLen = leftMaxLen
+		} else {
+			maxLen = rightMaxLen
+		}
+		return maxLen
 	}
-	var leftMaxLen, rightMaxLen, maxLen int
-	if root.Left != nil {
-		leftMaxLen = maxPathDistance(root.Left, max) + 1
-	}
-	if root.Right != nil {
-		rightMaxLen = maxPathDistance(root.Right, max) + 1
-	}
-	maxSumLen := leftMaxLen + rightMaxLen
-	if maxSumLen > *max {
-		*max = maxSumLen
-	}
-	if leftMaxLen > rightMaxLen {
-		maxLen = leftMaxLen
-	} else {
-		maxLen = rightMaxLen
-	}
-	return maxLen
+	maxPathDistance(root)
+	return max
 }
