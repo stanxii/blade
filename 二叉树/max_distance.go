@@ -22,7 +22,7 @@ func maxDistance(root *TreeNode) int {
 	if root.Right != nil {
 		rightMaxLen = maxDistance(root.Right) + 1
 	}
-	maxSumLen := leftMaxLen + rightMaxLen + 2
+	maxSumLen := leftMaxLen + rightMaxLen
 	if maxSumLen > max {
 		max = maxSumLen
 	}
