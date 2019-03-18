@@ -58,3 +58,22 @@ func firstMissingPositive(nums []int) int {
 	}
 	return max + 1
 }
+
+func firstMissingPositive2(nums []int) int {
+    if length := len(nums); length == 0{
+        return 1
+    } else {
+        array := make([]bool, length)
+	    for _, num := range nums {
+		    if num > 0 && num <= length {
+			    array[num-1] = true
+		    }
+	    }
+        for i := 0; i < length; i++ {
+		    if !array[i] {
+			    return i + 1
+		    }
+	    }
+        return length + 1
+    }
+}
