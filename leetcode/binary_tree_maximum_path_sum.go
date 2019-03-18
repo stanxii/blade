@@ -22,7 +22,7 @@ func maxPathSum(root *TreeNode) int {
 
 		leftMaxLen := preMaxPathSum(root.Left)
 		rightMaxLen := preMaxPathSum(root.Right)
-		max = maxNum(max, maxNum(0, leftMaxLen)+maxNum(0, rightMaxLen)+val)
+		max = maxNum(max, leftMaxLen+rightMaxLen+val)
 
 		return maxNum(0, maxNum(leftMaxLen, rightMaxLen)+val)
 	}
